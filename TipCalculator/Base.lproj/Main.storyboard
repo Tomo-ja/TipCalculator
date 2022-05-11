@@ -1,24 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-Ib-kUw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iRB-0C-GHF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="491"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clf-so-dpC">
+                                                <rect key="frame" x="179.5" y="0.0" width="55.5" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put bill amount here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3sQ-5F-fIh">
+                                                <rect key="frame" x="122.5" y="113" width="169.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-YD-xS7">
+                                                <rect key="frame" x="120" y="206.5" width="174" height="111.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yr7-Fe-czf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="31"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="10" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-wA-ufD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="31"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="10%"/>
+                                                                <connections>
+                                                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j3E-Sx-Til"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="15" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baU-vY-VTf">
+                                                                <rect key="frame" x="60" y="0.0" width="52" height="31"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="15%"/>
+                                                                <connections>
+                                                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gkS-2t-wU4"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="20" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgR-JV-bx3">
+                                                                <rect key="frame" x="120" y="0.0" width="54" height="31"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="20%"/>
+                                                                <connections>
+                                                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jbW-Vm-Kl8"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxv-Zi-VBs">
+                                                        <rect key="frame" x="0.0" y="46" width="174" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="SaJ-Sp-MxV">
+                                                        <rect key="frame" x="-2" y="81.5" width="178" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xYC-LP-hLu"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-EG-YIo">
+                                                <rect key="frame" x="195.5" y="377" width="23.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dBt-yT-fCB">
+                                                <rect key="frame" x="90" y="457" width="234" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gz-Ey-si7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="pdP-Vq-OzA"/>
+                                                        </constraints>
+                                                        <menu key="menu" id="Oxp-LH-KQS">
+                                                            <children>
+                                                                <command title="Item 1" id="7gI-tD-Vsy"/>
+                                                                <command title="Item 2" id="U0I-db-szc"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Custom Tips" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpA-k5-WCd">
+                                                        <rect key="frame" x="30" y="0.0" width="109.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teN-Oe-xRX">
+                                                        <rect key="frame" x="149.5" y="0.0" width="84.5" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Calculate"/>
+                                                        <connections>
+                                                            <action selector="calculateTipForCustom" destination="BYZ-38-t0r" eventType="touchUpInside" id="0cT-uh-xVX"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="rpA-k5-WCd" firstAttribute="leading" secondItem="3gz-Ey-si7" secondAttribute="trailing" constant="10" id="fOJ-4P-dA1"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="iRB-0C-GHF" firstAttribute="height" secondItem="4dv-Ib-kUw" secondAttribute="height" multiplier="0.6" id="4pj-q6-x06"/>
+                                    <constraint firstItem="iRB-0C-GHF" firstAttribute="trailing" secondItem="4qe-M4-9LG" secondAttribute="trailing" id="CUa-ic-xnN"/>
+                                    <constraint firstItem="iRB-0C-GHF" firstAttribute="top" secondItem="4qe-M4-9LG" secondAttribute="top" id="GPE-u2-x37"/>
+                                    <constraint firstItem="iRB-0C-GHF" firstAttribute="centerX" secondItem="4dv-Ib-kUw" secondAttribute="centerX" id="SkD-hk-BXs"/>
+                                    <constraint firstItem="iRB-0C-GHF" firstAttribute="bottom" secondItem="4qe-M4-9LG" secondAttribute="bottom" id="bzg-Ca-rkI"/>
+                                    <constraint firstItem="iRB-0C-GHF" firstAttribute="leading" secondItem="4qe-M4-9LG" secondAttribute="leading" id="fuQ-sw-A3u"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="4qe-M4-9LG"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="md9-35-DZi"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4dv-Ib-kUw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="G6l-Se-gNZ"/>
+                            <constraint firstItem="4dv-Ib-kUw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UIR-uq-Pz3"/>
+                            <constraint firstItem="4dv-Ib-kUw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="csk-Zb-PH8"/>
+                            <constraint firstItem="4dv-Ib-kUw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pia-5V-7gT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billAmountTextField" destination="3sQ-5F-fIh" id="rd8-N1-PW6"/>
+                        <outlet property="mainStackView" destination="iRB-0C-GHF" id="b53-SQ-Mwe"/>
+                        <outlet property="persentageForSlider" destination="vxv-Zi-VBs" id="EJH-68-pMg"/>
+                        <outlet property="popupButtonForCustomTip" destination="3gz-Ey-si7" id="dE7-wV-ICz"/>
+                        <outlet property="scrollView" destination="4dv-Ib-kUw" id="jzc-gN-qZv"/>
+                        <outlet property="tipAmountLabel" destination="clf-so-dpC" id="DJv-iF-Okj"/>
+                        <outlet property="tipCustomTextField" destination="rpA-k5-WCd" id="Tt0-rJ-j2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
