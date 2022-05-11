@@ -13,16 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet var tipAmountLabel: UILabel!
     @IBOutlet var popupButtonForCustomTip: UIButton!
     @IBOutlet var tipCustomTextField: UITextField!
-    var customTipsWithDoller = true
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var mainStackView: UIStackView!
-    @IBOutlet var persentageForSlider: UILabel!
+    @IBOutlet var persentageLabelForSlider: UILabel!
+    
+    var customTipsWithDoller = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
-
     }
 
     func setup(){
@@ -40,6 +39,20 @@ class ViewController: UIViewController {
     
     @objc func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    func setUpPopupButton(){
+        let optionClosure = {(action: UIAction) in
+            if action.title == "$"{
+                self.customTipsWithDoller = true
+            }else{
+                self.customTipsWithDoller = false
+            }
+        }
+        popupButtonForCustomTip.menu = UIMenu(children: [
+            UIAction(title: "$", state: .on, handler: optionClosure),
+            UIAction(title: "%", handler: optionClosure)
+        ])
     }
         
     func regiserForKeyboardNotifications(){
@@ -59,26 +72,11 @@ class ViewController: UIViewController {
     @objc func keyboardWillDisapper(){
         scrollView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
     }
-    
-    func setUpPopupButton(){
-        let optionClosure = {(action: UIAction) in
-            if action.title == "$"{
-                self.customTipsWithDoller = true
-            }else{
-                self.customTipsWithDoller = false
-            }
-        }
-        popupButtonForCustomTip.menu = UIMenu(children: [
-            UIAction(title: "$", state: .on, handler: optionClosure),
-            UIAction(title: "%", handler: optionClosure)
-        ])
-    }
 
     @IBAction func calculateTip(_ sender: UIButton) {
         guard let billAmountDouble = Double(billAmountTextField.text!) else {return}
         let tipRate: Double = Double(sender.restorationIdentifier!)! / 100
         let totalWithTips = billAmountDouble * (1 + tipRate)
-        print(totalWithTips)
         tipAmountLabel.text = "$\(String(format: "%.2f", totalWithTips))"
     }
     
@@ -96,11 +94,10 @@ class ViewController: UIViewController {
 
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let persentage = String(format: "%.0f", sender.value)
-        persentageForSlider.text = "\(persentage)%"
+        persentageLabelForSlider.text = "\(persentage)%"
         guard let billAmountDouble = Double(billAmountTextField.text!) else {return}
         let totalWithTips = billAmountDouble * (1 + Double(persentage)! / 100)
         tipAmountLabel.text = "$\(String(format: "%.2f", totalWithTips))"
     }
-    
 }
 
